@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Locust
+logs/
+*.log
+report.html
+
+# IDE
+.idea/
+.vscode/
