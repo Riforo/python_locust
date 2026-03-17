@@ -1,0 +1,17 @@
+services:
+  master:
+    build: .
+    container_name: locust-master
+    ports:
+      - "8089:8089"
+    volumes:
+      - .:/mnt/locust
+    command: -f locustfile.py --master
+
+  worker:
+    build: .
+    volumes:
+      - .:/mnt/locust
+    command: -f locustfile.py --worker --master-host master
+    deploy:
+      replicas: 2 # Сколько ядер CPU хочешь задействовать

@@ -46,4 +46,24 @@ locust -f locustfile.py TaskClassOfPortalInProfile
 ```
 locust -f locustfile.py --headless -u 100 -r 10 --run-time 5m --host https://jsonplaceholder.typicode.com
 ```
+-u 100: количество виртуальных пользователей.\
+-r 10: скорость появления (users per second).\
+--run-time 5m: длительность теста 5 минут..
 
+## 🐳 Запуск в Docker
+Проект полностью контейнеризирован и готов к работе в распределенном режиме (Master-Worker).
+
+### Запуск локального кластера:
+```bash
+# Сборка и запуск Master и Worker (по умолчанию 1 воркер)
+docker-compose up --build 
+```
+### Масштабирование нагрузки:
+Если одного воркера недостаточно для генерации нагрузки, увеличьте их количество:
+```bash
+# Запуск 4-х воркеров параллельно
+docker-compose up --scale worker=4 -d
+```
+### Остановка проекта
+```bash
+docker-compose down
