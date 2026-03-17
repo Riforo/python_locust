@@ -6,4 +6,7 @@ class ParamResp(BaseModel):
     code: str
 
 class MainResponse(BaseModel):
-    param: Optional[ParamResp]
+    userId: int
+    id: int
+    title: str
+    body: str

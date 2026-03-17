@@ -1,4 +1,4 @@
-tag:
-  endpoint_name:
-    endpoint: "api/path/endpoint"
+jsonplaceholder:
+  one_posts:
+    endpoint: "/posts/1"
     method: "GET"

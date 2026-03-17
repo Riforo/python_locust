@@ -6,7 +6,7 @@ import yaml
 _ENDPOINT_CACHE: Dict[Path, Dict[str, Dict]] = {}
 
 def _load_yaml_once(name) -> Dict[str, Any]:
-    file_path = Path(__file__).parent / "source" / name + ".yaml"
+    file_path = Path(__file__).parent / "source" / f"{name}.yaml"
     # Если уже загружали — возвращаем из кэша
     if file_path in _ENDPOINT_CACHE:
         return _ENDPOINT_CACHE[file_path]

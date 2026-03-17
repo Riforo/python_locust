@@ -2,12 +2,10 @@ from locust import TaskSet, task
 
 from api.model.responses.main import MainResponse
 from api.services.portal import PortalServices
-from profile.base_user import BaseProfile, BaseUserWithServiser
+from profile.user_config.base_user import BaseProfile
 
 
 class TaskClassOfPortalInProfile(TaskSet):
-
-    user: BaseUserWithServiser
     
     @task
     def send_request(self):
@@ -17,7 +15,7 @@ class TaskClassOfPortalInProfile(TaskSet):
 class TaskClassPortalInTask(TaskSet):
 
     def on_start(self):
-        self.portal_servise = PortalServices()
+        self.portal_servise = PortalServices(self.client)
 
     @task
     def send_request(self):
@@ -27,7 +25,7 @@ class TaskClassPortalInTask(TaskSet):
 class TaskWithWalidateResponse(TaskSet):
 
     def on_start(self):
-        self.portal_servise = PortalServices()
+        self.portal_servise = PortalServices(self.client)
     
     @task
     def send_with_walidate(self):
@@ -41,4 +39,4 @@ class TaskClassForUserOfBaseProfile(TaskSet):
     
     @task
     def send_request(self):
-        self.user.portal_servise.send_endpoint_name()
+        self.user.portal_servise.send_with_validate()
