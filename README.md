@@ -25,3 +25,25 @@
 3. Установите зависимости
     ```
     pip install -r requirements.txt
+
+## 🏃 Запуск тестов
+
+Для запуска проекта убедитесь, что виртуальное окружение активировано и зависимости установлены (`pip install -r requirements.txt`).
+
+### 1. Запуск с графическим интерфейсом (Web UI)
+После запуска откройте в браузере [http://localhost:8089](http://localhost:8089):
+```bash
+# Запуск всех доступных профилей
+locust -f locustfile.py
+
+# Запуск конкретного профиля (например, TaskClassOfPortalInProfile)
+locust -f locustfile.py TaskClassOfPortalInProfile
+```
+
+### 2. Консольный запуск (Headless)
+Используется для автоматизации и CI/CD:
+
+```
+locust -f locustfile.py --headless -u 100 -r 10 --run-time 5m --host https://jsonplaceholder.typicode.com
+```
+
