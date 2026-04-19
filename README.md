@@ -34,10 +34,10 @@
 После запуска откройте в браузере [http://localhost:8089](http://localhost:8089):
 ```bash
 # Запуск всех доступных профилей
-locust -f locustfile.py
+locust -f profile/test_profile.py
 
-# Запуск конкретного профиля (например, TaskClassOfPortalInProfile)
-locust -f locustfile.py TaskClassOfPortalInProfile
+# Запуск конкретного профиля (например, BaseUserWithServiser)
+locust -f profile/test_profile.py BaseUserWithServiser
 ```
 
 ### 2. Консольный запуск (Headless)
