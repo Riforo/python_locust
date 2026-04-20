@@ -6,12 +6,12 @@ services:
       - "8089:8089"
     volumes:
       - .:/mnt/locust
-    command: -f locustfile.py --master
+    command: -f profile/test_profile.py --master
 
   worker:
     build: .
     volumes:
       - .:/mnt/locust
-    command: -f locustfile.py --worker --master-host master
+    command: -f profile/test_profile.py --worker --master-host master
     deploy:
       replicas: 2 # Сколько ядер CPU хочешь задействовать

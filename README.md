@@ -44,7 +44,7 @@ locust -f profile/test_profile.py BaseUserWithServiser
 Используется для автоматизации и CI/CD:
 
 ```
-locust -f locustfile.py --headless -u 100 -r 10 --run-time 5m --host https://jsonplaceholder.typicode.com
+locust -f profile/test_profile.py --headless -u 100 -r 10 --run-time 5m --host https://jsonplaceholder.typicode.com
 ```
 -u 100: количество виртуальных пользователей.\
 -r 10: скорость появления (users per second).\
